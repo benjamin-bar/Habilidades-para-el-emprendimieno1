@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pitch Deck - Fábrica de Microchips - ChipLab">
+    <meta name="author" content="Benjamin Barona Tovar">
+    <title>Pitch Deck - Fábrica de Microchips</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .presentation-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: #999;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 42px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+        }
+        p, li {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e0e0e0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+        .team-member {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        .icon {
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+                min-height: 500px;
+            }
+            h1 { font-size: 32px; }
+            h2 { font-size: 26px; }
+            h3 { font-size: 20px; }
+            p, li { font-size: 16px; }
+            .controls {
+                padding: 15px 20px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <!-- Slide 1: Portada -->
+        <div class="slide active">
+            <div class="slide-number">1/10</div>
+            <div class="icon">🔬</div>
+            <h1>Fábrica de Microchips</h1>
+            <p class="subtitle">Revolucionando la Industria de Semiconductores</p>
+            <div class="highlight" style="margin-top: 60px;">
+                <h3 style="color: white; text-align: center;">Fabricación de semiconductores especializados para IoT y tecnologías emergentes</h3>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 16px; color: #666;">
+                Universidad Anáhuac - Habilidades para el Emprendimiento<br>
+                Benjamin Barona Tovar
+            </p>
+        </div>
+
+        <!-- Slide 2: Las 3 Problemáticas -->
+        <div class="slide">
+            <div class="slide-number">2/10</div>
+            <h2>Problemáticas Principales</h2>
+            
+            <h3>1. Dependencia Geopolítica</h3>
+            <p>La producción global de semiconductores está concentrada en 3 países (Taiwán 65%, Corea del Sur 18%, China 12%). Esta concentración genera riesgos de suministro críticos para industrias tecnológicas globales.</p>
+            
+            <h3>2. Brecha Tecnológica en Mercados Emergentes</h3>
+            <p>Los chips especializados para IoT, sensores y aplicaciones industriales tienen tiempos de entrega de 40-52 semanas debido a que los fabricantes priorizan chips de alto margen para smartphones y computadoras.</p>
+            
+            <h3>3. Barrera de Entrada Extremadamente Alta</h3>
+            <p>El costo de construir una fábrica de semiconductores moderna supera los $10-20 mil millones USD, limitando la competencia y diversificación del mercado.</p>
+        </div>
+
+        <!-- Slide 3: Soluciones Actuales -->
+        <div class="slide">
+            <div class="slide-number">3/10</div>
+            <h2>Soluciones Existentes</h2>
+            
+            <h3>1. TSMC (Taiwan Semiconductor Manufacturing Company)</h3>
+            <p>Líder mundial en fabricación de chips. Opera como foundry pura, fabricando diseños de terceros. Domina los nodos más avanzados (3nm, 5nm) con 60% de market share en foundries.</p>
+            
+            <h3>2. Intel y Samsung (Modelo IDM)</h3>
+            <p>Fabricantes integrados que diseñan y producen sus propios chips. Intel está expandiendo servicios de foundry (Intel Foundry Services) para competir con TSMC.</p>
+            
+            <h3>3. GlobalFoundries y UMC (Foundries de Nodos Maduros)</h3>
+            <p>Se especializan en tecnologías de 28nm en adelante, enfocados en chips para automotriz, IoT y aplicaciones industriales con márgenes más bajos pero demanda estable.</p>
+        </div>
+
+        <!-- Slide 4: Deficiencias de Soluciones Actuales -->
+        <div class="slide">
+            <div class="slide-number">4/10</div>
+            <h2>Deficiencias Actuales</h2>
+            
+            <h3>1. Falta de Flexibilidad y Tiempos de Entrega</h3>
+            <p>TSMC y Samsung priorizan contratos masivos (+100,000 obleas). Empresas medianas esperan 12+ meses para producción. No hay soluciones ágiles para volúmenes medios (10,000-50,000 obleas/año).</p>
+            
+            <h3>2. Costo Prohibitivo para Innovadores</h3>
+            <p>El costo de ingeniería no recurrente (NRE) en TSMC puede alcanzar $50-100 millones USD para nodos avanzados. Esto elimina a startups y PyMEs del mercado de chips personalizados.</p>
+            
+            <h3>3. Riesgo Geopolítico Concentrado</h3>
+            <p>80%+ de la capacidad avanzada está en Taiwán. Tensiones con China crean vulnerabilidad crítica. No existe diversificación geográfica real para tecnologías sub-14nm fuera de Asia.</p>
+        </div>
+
+        <!-- Slide 5: Nuestra Solución -->
+        <div class="slide">
+            <div class="slide-number">5/10</div>
+            <h2>ChipLab - Nuestra Solución</h2>
+            <div class="icon">⚡</div>
+            
+            <div class="highlight">
+                <h3 style="color: white;">Foundry Ágil para Nodos Maduros Especializados</h3>
+                <p style="color: white;">Fabricación de semiconductores en nodos 28nm-90nm optimizados para IoT, sensores, automotriz y aplicaciones industriales.</p>
+            </div>
+            
+            <h3>¿Cómo Funciona?</h3>
+            <p><strong>• Modelo Híbrido:</strong> Combinamos servicios de foundry pura con diseño asistido para clientes medianos.</p>
+            <p><strong>• Lotes Flexibles:</strong> Aceptamos órdenes desde 5,000 obleas/año, 10x más accesible que competidores.</p>
+            <p><strong>• Certificación Automotriz:</strong> Procesos certificados ISO 26262 desde día uno para mercado automotriz.</p>
+            <p><strong>• Tiempo de Mercado:</strong> Reducimos time-to-market de 52 a 24 semanas mediante procesos optimizados.</p>
+        </div>
+
+        <!-- Slide 6: Ventaja Competitiva -->
+        <div class="slide">
+            <div class="slide-number">6/10</div>
+            <h2>¿Por Qué es Difícil de Copiar?</h2>
+            
+            <h3>1. Barrera de Capital Extrema</h3>
+            <p>Requiere inversión inicial de $3-5 mil millones USD y 3-4 años de construcción. Solo gobiernos o consorcios pueden replicar.</p>
+            
+            <h3>2. Know-How Propietario de Procesos</h3>
+            <p>Desarrollaremos procesos optimizados para nuestros nodos específicos con yields superiores (+15%) vs. competidores en mismos nodos. Este conocimiento toma 5-7 años en desarrollar.</p>
+            
+            <h3>3. Ecosistema de Clientes y Certificaciones</h3>
+            <p>Las certificaciones automotrices (AEC-Q100, ISO 26262) requieren 2-3 años de auditorías. Los contratos de suministro automotriz son de 7-10 años, creando lock-in con clientes ancla.</p>
+            
+            <h3>4. Acuerdos de Transferencia Tecnológica</h3>
+            <p>Licencias exclusivas regionales con proveedores de equipos (Applied Materials, ASML) nos dan ventaja temporal de 3-5 años en nuestra zona geográfica.</p>
+        </div>
+
+        <!-- Slide 7: Modelo de Ingresos -->
+        <div class="slide">
+            <div class="slide-number">7/10</div>
+            <h2>Generación de Ingresos</h2>
+            
+            <h3>Flujo Principal (75% de ingresos)</h3>
+            <p><strong>Fabricación por Oblea:</strong> $1,200-2,500 USD por oblea en nodos 28nm-65nm. Capacidad objetivo: 15,000 obleas/mes en Fase 1 (año 3-5) = $216-450M USD anuales.</p>
+            
+            <h3>Servicios de Diseño Asistido (15% de ingresos)</h3>
+            <p><strong>NRE y Consultoría:</strong> $500K-5M USD por proyecto de diseño y optimización para clientes que necesitan adaptación de IP cores existentes.</p>
+            
+            <h3>Capacity Reservation (10% de ingresos)</h3>
+            <p><strong>Contratos Garantizados:</strong> Clientes automotrices pagan fee anual ($5-10M USD) por capacidad reservada garantizada, generando ingresos predecibles.</p>
+            
+            <div class="highlight">
+                <p style="color: white;"><strong>Proyección Año 5:</strong> $300-400M USD en ingresos | EBITDA: 35-40% | Break-even: Año 4</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Equipo -->
+        <div class="slide">
+            <div class="slide-number">8/10</div>
+            <h2>Nuestro Equipo</h2>
+            
+            <div class="team-member">
+                <h3>Benjamin Barona Tovar - CEO & Founder</h3>
+                <p><strong>Habilidad:</strong> Visión estratégica y análisis de mercado tecnológico. Experiencia en identificación de oportunidades en sectores de alta inversión.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Socio 2 - CTO (Chief Technology Officer)</h3>
+                <p><strong>Habilidad:</strong> 15+ años en ingeniería de procesos de semiconductores en Intel. Experto en optimización de yields y transferencia tecnológica.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Socio 3 - CFO (Chief Financial Officer)</h3>
+                <p><strong>Habilidad:</strong> Experiencia en estructuración de financiamiento de proyectos CapEx-intensivos. Ex-director en banca de inversión especializado en sector tech.</p>
+            </div>
+            
+            <div class="team-member">
+                <h3>Socio 4 - VP Operations</h3>
+                <p><strong>Habilidad:</strong> Gestión de construcción y puesta en marcha de fabs. 20+ años en TSMC y GlobalFoundries liderando equipos de 500+ personas.</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Cliente Objetivo -->
+        <div class="slide">
+            <div class="slide-number">9/10</div>
+            <h2>Perfil del Cliente y Estrategia</h2>
+            
+            <h3>Características del Cliente Objetivo</h3>
+            <p><strong>• Empresas Automotrices Tier 1 y Tier 2:</strong> Fabricantes de sistemas de seguridad, sensores ADAS, controladores de batería para EVs. Facturación: $500M-5B USD. Requieren certificación ISO 26262.</p>
+            
+            <p><strong>• Empresas de IoT Industrial:</strong> Fabricantes de sensores industriales, smart meters, equipos de automatización. Volúmenes: 10-50M chips/año. Buscan diferenciación mediante customización.</p>
+            
+            <p><strong>• Startups de Hardware con Series B+:</strong> Empresas con producto validado que necesitan ASIC personalizado para escalar. Presupuesto: $10-50M USD para desarrollo de chip.</p>
+            
+            <h3>Estrategia de Adquisición</h3>
+            <p><strong>1. Clientes Ancla Pre-Operación:</strong> Asegurar 3 contratos de largo plazo (7-10 años) con OEMs automotrices antes de romper tierra. Esto valida demanda y mejora términos de financiamiento.</p>
+            
+            <p><strong>2. Presencia en Ferias Especializadas:</strong> Embedded World, Semicon West, electronica Munich - demos tecnológicos y networking directo con decisores.</p>
+            
+            <p><strong>3. Alianzas con Diseñadores de IP:</strong> Partnership con ARM, Synopsys, Cadence para ser foundry recomendado para implementaciones de sus IP cores.</p>
+        </div>
+
+        <!-- Slide 10: Necesidades -->
+        <div class="slide">
+            <div class="slide-number">10/10</div>
+            <h2>¿Qué Necesitamos?</h2>
+            
+            <h3>💰 Inversión de Capital</h3>
+            <p><strong>Serie A: $50M USD</strong> - Estudios de factibilidad, diseño de planta, securing de clientes ancla, equipo inicial (24 meses)</p>
+            <p><strong>Serie B: $500M-1B USD</strong> - Construcción fase 1, adquisición de equipos críticos, contratación de talento (36 meses)</p>
+            <p><strong>Debt Financing: $2-3B USD</strong> - Completar CapEx de construcción mediante deuda estructurada con garantías de contratos.</p>
+            
+            <h3>🤝 Socios Estratégicos</h3>
+            <p><strong>• Proveedor de Equipos:</strong> Applied Materials o ASML - Condiciones preferenciales y soporte técnico</p>
+            <p><strong>• Gobierno/Subsidios:</strong> Incentivos fiscales y subsidios (modelo CHIPS Act) para reducir riesgo del inversor</p>
+            <p><strong>• Cliente Ancla:</strong> Joint venture con OEM automotriz que garantice 30-40% de capacidad</p>
+            
+            <h3>🎓 Mentoría Especializada</h3>
+            <p><strong>• Ex-ejecutivos de TSMC/Intel:</strong> Advisory board para navegación de industria y evitar errores costosos</p>
+            <p><strong>• Expertos en Project Finance:</strong> Estructuración óptima de capital considerando riesgo y retornos</p>
+            
+            <div class="highlight">
+                <p style="color: white; text-align: center;"><strong>Contacto:</strong> benjamin.barona@anahuac.mx</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+            <span id="slideIndicator" style="align-self: center; color: #666; font-weight: bold;">1 / 10</span>
+            <button id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideIndicator = document.getElementById('slideIndicator');
+        const progressFill = document.getElementById('progressFill');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            
+            prevBtn.disabled = (n === 0);
+            nextBtn.disabled = (n === totalSlides - 1);
+            
+            slideIndicator.textContent = `${n + 1} / ${totalSlides}`;
+            progressFill.style.width = `${((n + 1) / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
